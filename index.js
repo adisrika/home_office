@@ -23,6 +23,7 @@ if (hour >= 9 && hour < 13) {
 	request('https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + office + '&destinations=' + home + '&departure_time=now&key=AIzaSyAqWgYh1ytIpb0njggpA4b3jdcBCtq5Uf8', function (error, response, body) {
 		if (!error && response.statusCode == 200) {
 			body = JSON.parse(body);
+			console.log(hour + ':' + minute + ' ' + body.rows[0].elements[0].duration_in_traffic.value);
 			fs.appendFile(today + '-office-home.txt', hour + ':' + minute + ' ' + body.rows[0].elements[0].duration_in_traffic.value);
 		}
 	});
