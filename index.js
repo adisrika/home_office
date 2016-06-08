@@ -12,7 +12,7 @@ hour = date.getHours();
 minute = date.getMinutes();
 today = date.getDate() + '-' + date.getMonth();
 
-if (hour >= 9 && hour < 13) {
+if (hour >= 9 && hour < 14) {
 	request('https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + home + '&destinations=' + office + '&departure_time=now&key=AIzaSyAqWgYh1ytIpb0njggpA4b3jdcBCtq5Uf8', function (error, response, body) {
 		if (!error && response.statusCode == 200) {
 			body = JSON.parse(body);
